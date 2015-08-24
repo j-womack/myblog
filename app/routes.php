@@ -11,7 +11,47 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', 'HomeController@showWelcome');
+
+Route::get('/sayhello/{name?}', function($name = 'world')
 {
-	return View::make('hello');
+    return 'Hello ' . $name . '.';
 });
+
+Route::get('/resume', 'HomeController@showResume');
+
+Route::get('/portfolio', function()
+{
+    return 'This is my portfolio.';
+});
+
+Route::get('/rolldice/{guess}', function ($guess)
+{
+    $data = array('guess' => $guess);
+    return View::make('roll-dice')->with($data);
+});
+
+Route::get('/myfirstview/{name}', function($name)
+{
+    return View::make('my-first-view')->with('name', $name);
+});
+
+Route::get('/calculator', function()
+{
+    return View::make('calculator');
+});
+
+Route::get('/konami', function()
+{
+    return View::make('konami');
+});
+
+Route::resource('posts', 'PostsController');
+
+Route::get('orm-test', function()
+{
+    
+});
+
+
+
