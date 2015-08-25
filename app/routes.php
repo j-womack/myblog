@@ -46,6 +46,15 @@ Route::get('/konami', function()
     return View::make('konami');
 });
 
+Route::get('/posts', 'PostsController@index');
+
+// Login and logout
+Route::get('/login', 'HomeController@showLogin');
+Route::post('/login', 'HomeController@doLogin');
+Route::get('/logout', 'HomeController@doLogout');
+
+
+
 Route::resource('posts', 'PostsController');
 
 Route::get('orm-test', function()
