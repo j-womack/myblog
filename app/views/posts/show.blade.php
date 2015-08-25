@@ -9,7 +9,7 @@ The Blog
     <span>{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</span>
     <p>{{{ $post->body }}}</p>
 
-    @if (Auth::check())
+    @if (Auth::check() && Auth::id() == $post->user->id)
         <div>
             <a href="{{{ action('PostsController@edit', $post->id) }}}" class="btn btn-default">Edit Post</a>
             <button id="delete" class="btn btn-danger">Delete</button>

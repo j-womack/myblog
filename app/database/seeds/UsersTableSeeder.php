@@ -23,9 +23,4 @@ class UsersTableSeeder extends Seeder
             $user->save();
         }
     }
-
-    // protected function createFakeUsers() 
-    // {
-        
-    // }
 }

@@ -12,7 +12,7 @@ Create Blog Post
 
     {{ Form::open(array('action' => 'PostsController@store')) }}
     
-    @include('posts.create-edit-form')
+        @include('posts.create-edit-form')
 
     {{ Form::close() }}
 @stop

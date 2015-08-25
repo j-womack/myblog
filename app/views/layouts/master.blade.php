@@ -73,9 +73,23 @@
                     <li>
                         <a href="/posts/1">Sample Post</a>
                     </li>
-                    <li>
-                        <a href="/posts">Contact</a>
-                    </li>
+
+                    {{ Form::open(array('action' => 'PostsController@index', 'method' => 'get')) }}
+    
+                        {{ Form::text('search', null, ['class' => 'form-control']) }}
+
+                    {{ Form::close() }}
+
+
+                    @if(!Auth::check())
+                        <li>
+                            <a href="/login">Login</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="/logout">Logout</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

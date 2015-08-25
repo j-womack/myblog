@@ -2,6 +2,14 @@
 
 class PostsController extends \BaseController {
 
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->beforeFilter('auth', array('except' => array('index', 'show')));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +17,22 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::paginate(5);
+		$query = Post::with('user');
+
+		if (Input::has('search')) {
+
+			$search = Input::get('search');
+
+			$query->where('title', 'like', "%$search%");
+			$query->orwhereHas('user', function($q) use ($search) {
+				$q->where('email', 'like', "%$search%");
+			});
+
+		}
+
+
+
+		$posts = $query->orderBy('created_at', 'desc')->paginate(5);
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
