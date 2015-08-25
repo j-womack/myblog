@@ -44,7 +44,10 @@ class PostsController extends \BaseController {
 			$post = new Post();
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
+			$post->user_id = Auth::id();
 			$post->save();
+
+			Log::info('Success: ' ,['title' => $post->title, 'body' => $post->body]);
 
 			Session::flash('successMessage', 'You created a post successfully');
 
@@ -95,6 +98,12 @@ class PostsController extends \BaseController {
 	public function update($id)
 	{
 		$post = Post::find($id);
+
+		if(!$post) {
+			Session::flash('errorMessage', "Post not found");
+			App::abort(404);
+		}
+
 		$post->title = Input::get('title');
 		$post->body = Input::get('body');
 		$post->save();

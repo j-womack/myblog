@@ -5,4 +5,7 @@ return array(
     'DB_NAME' => '',
     'DB_USER' => '',
     'DB_PASS' => '',
+
+    'USER_EMAIL'    => '',
+    'USER_PASSWORD' => '',
 );

@@ -9,11 +9,12 @@ The Blog
     <span>{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</span>
     <p>{{{ $post->body }}}</p>
 
-    <div>
-        <a href="{{{ action('PostsController@edit', $post->id) }}}" class="btn btn-default">Edit Post</a>
-        <button id="delete" class="btn btn-danger">Delete</button>
-    </div>
-
+    @if (Auth::check())
+        <div>
+            <a href="{{{ action('PostsController@edit', $post->id) }}}" class="btn btn-default">Edit Post</a>
+            <button id="delete" class="btn btn-danger">Delete</button>
+        </div>
+    @endif
     {{ Form::open(array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE', 'id' => 'formDelete')) }}
     {{ Form::close() }}
 

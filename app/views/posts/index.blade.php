@@ -10,7 +10,7 @@ The Blog
     <h1>Blog posts</h1>
     @foreach($posts as $post)
         <h2><a href="{{{ action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a></h2>
-        <span>{{{ $post->created_at->diffforhumans() }}}</span>
+        <span>{{{ $post->created_at->diffforhumans() }}} /// {{{ $post->user->email }}}</span>
         <p>{{{ $post->body }}}</p>
     @endforeach
 
