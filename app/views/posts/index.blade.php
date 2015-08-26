@@ -5,7 +5,7 @@ The Blog
 @stop
 
 @section('content')
-    {{ $posts->links() }}
+    {{ $posts->appends(array('search' => Input::get('search')))->links() }}
 
     <h1>Blog posts</h1>
     @foreach($posts as $post)

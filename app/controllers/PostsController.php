@@ -29,6 +29,8 @@ class PostsController extends \BaseController {
 			});
 
 		}
+		// $query->appends(array('search' => $search))->links();
+
 
 
 
@@ -92,6 +94,11 @@ class PostsController extends \BaseController {
 		$post = Post::find($id);
 
 		if ($post) {
+			$body = $post->body;
+			$parse = new Parsedown();
+
+			$post->body = $parse->text($body);
+
 			return View::make('posts.show')->with('post', $post);
 		}
 
@@ -151,5 +158,14 @@ class PostsController extends \BaseController {
 		return Redirect::action('PostsController@index');		
 	}
 
+	public function renderBody($id)
+	{
+		$post = Post::find($id);
+		$body = $post->body;
+
+		$parse = new Parsedown();
+
+		return $parse->body;
+	}
 
 }

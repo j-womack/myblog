@@ -7,7 +7,7 @@ The Blog
 @section('content')
     <h1>{{{ $post->title }}}</h1>
     <span>{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</span>
-    <p>{{{ $post->body }}}</p>
+    <p>{{ $post->body }}</p>
 
     @if (Auth::check() && Auth::id() == $post->user->id)
         <div>
