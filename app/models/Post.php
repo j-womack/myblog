@@ -12,4 +12,10 @@ class Post extends Eloquent
     {
         return $this->belongsTo('User');
     }
+
+    public static function randomImage() {
+        $num = mt_rand(1,5);
+
+        return $num;
+    }
 }

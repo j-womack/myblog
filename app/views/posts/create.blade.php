@@ -8,6 +8,14 @@ Create Blog Post
 
 @stop
 
+@section('heading')
+    Create a New Post
+@stop
+
+@section('subheading')
+    ...
+@stop
+
 @section('content')
 
     {{ Form::open(array('action' => 'PostsController@store')) }}

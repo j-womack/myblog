@@ -24,4 +24,6 @@ class BaseModel extends Eloquent
     {
         $this->attributes['password'] = Hash::make($value);
     }
+
+    
 }

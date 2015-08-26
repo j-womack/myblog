@@ -4,9 +4,20 @@
 The Blog
 @stop
 
+@section('heading')
+    {{ $post->title }}
+@stop
+
+@section('subheading')
+    by: {{{ $post->user->email }}}
+@stop
+
 @section('content')
-    <h1>{{{ $post->title }}}</h1>
-    <span>{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</span>
+    <p>
+        /// <strong>{{ $post->title }}</strong> <br>
+        /// <em>by: {{{ $post->user->email }}}</em> <br>
+        /// <em>{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</em>
+    </p>
     <p>{{ $post->body }}</p>
 
     @if (Auth::check() && Auth::id() == $post->user->id)

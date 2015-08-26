@@ -29,12 +29,17 @@ class PostsController extends \BaseController {
 			});
 
 		}
-		// $query->appends(array('search' => $search))->links();
-
-
-
 
 		$posts = $query->orderBy('created_at', 'desc')->paginate(5);
+		
+		foreach ($posts as $post) {
+	 		$body = $post->body;
+			$parse = new Parsedown();
+
+			$post->body = $parse->text($body);
+		}
+
+
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
@@ -67,8 +72,14 @@ class PostsController extends \BaseController {
 			return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 			$post = new Post();
-			$post->title = Input::get('title');
-			$post->body = Input::get('body');
+
+			$title = htmlspecialchars(strip_tags(Input::get('title')));
+			$body = htmlspecialchars(strip_tags(Input::get('body')));
+
+			// dd($body);
+
+			$post->title = $title;
+			$post->body = $body;
 			$post->user_id = Auth::id();
 			$post->save();
 
