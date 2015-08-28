@@ -13,7 +13,7 @@
 @stop
 
 @section('image_url')
-    '/img/about/about{{ Post::randomAbout() }}.jpg'
+    '/img/headers/coffee{{ Post::randomCoffee() }}.jpg'
 @stop
 
 @section('content')

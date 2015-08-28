@@ -24,4 +24,10 @@ class Post extends Eloquent
 
         return $num;
     }
+
+    public static function randomCoffee() {
+        $num = mt_rand(1,10);
+
+        return $num;
+    }
 }
