@@ -9,7 +9,7 @@ class PostsSeeder extends Seeder
         $post = new Post();
         $post->user_id = 1;
         $post->title = "First Post";
-        $post->body = "This is the first post on my Laravel blog which I have made from scratch.";
+        $post->body = "This is the first post on my blog which I have made from scratch using Laravel.";
         
         $post->save();
     }
