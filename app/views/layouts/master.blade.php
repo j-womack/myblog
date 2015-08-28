@@ -91,6 +91,7 @@
             </div>
         </div>
     </div>
+    @yield('credit')
 </header>
 
 

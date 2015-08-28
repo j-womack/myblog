@@ -478,3 +478,13 @@ body {
     position: relative;
     top: 140px;
 }
+
+.jomando {
+    color: #FFF;
+    font-size: 15px;
+    position: relative;
+}
+
+.jback {
+    background:rgba(0,0,0,.1);
+}

@@ -16,6 +16,11 @@ Assorted musings
 '/img/header/coffee{{ Post::randomCoffee() }}.jpg'
 @stop
 
+@section('credit')
+<span class="jomando jback">Coffee photos by: <a href="http://instagram.com/jomando" class="jomando">@jomando</a></span>
+@stop
+
+
 @section('content')
     {{ $posts->appends(array('search' => Input::get('search')))->links() }}
 
