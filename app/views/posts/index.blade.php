@@ -1,19 +1,19 @@
 @extends('layouts.master')
 
 @section('title')
-    The Blog
+The Blog
 @stop
 
 @section('heading')
-    noisefights
+noisefights
 @stop
 
 @section('subheading')
-    Assorted musings
+Assorted musings
 @stop
 
 @section('image_url')
-    '/img/headers/coffee{{ Post::randomCoffee() }}.jpg'
+'/img/headers/coffee{{ Post::randomCoffee() }}.jpg'
 @stop
 
 @section('content')
