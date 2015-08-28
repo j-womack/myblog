@@ -13,7 +13,7 @@ Assorted musings
 @stop
 
 @section('image_url')
-'/img/headers/coffee{{ Post::randomCoffee() }}.jpg'
+'/img/header/coffee{{ Post::randomCoffee() }}.jpg'
 @stop
 
 @section('content')
