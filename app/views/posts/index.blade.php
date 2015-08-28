@@ -1,15 +1,19 @@
 @extends('layouts.master')
 
 @section('title')
-The Blog
+    The Blog
 @stop
 
 @section('heading')
-    Josh
+    noisefights
 @stop
 
 @section('subheading')
-    This is a blog.
+    Assorted musings
+@stop
+
+@section('image_url')
+    '/img/about/about{{ Post::randomAbout() }}.jpg'
 @stop
 
 @section('content')
@@ -18,7 +22,7 @@ The Blog
     <h1>Blog posts</h1>
     @foreach($posts as $post)
         <h2><a href="{{{ action('PostsController@show', $post->id) }}}">{{ strip_tags($post->title) }}</a></h2>
-        <span>{{{ $post->created_at->diffforhumans() }}} /// {{{ $post->user->email }}}</span>
+        <span>{{{ $post->created_at->diffforhumans() }}} /// By: {{{ $post->user->firstName }}}</span>
         <p>{{ strip_tags($post->body) }}</p>
     @endforeach
 

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', 'PostsController@index');
 
 Route::get('/sayhello/{name?}', function($name = 'world')
 {
@@ -53,7 +53,7 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@doLogout');
 
-
+Route::get('/about', 'HomeController@about');
 
 Route::resource('posts', 'PostsController');
 

@@ -50,4 +50,9 @@ class HomeController extends BaseController {
 		Session::flash('','Logout successful');
 		return Redirect::to('/');
 	}
+
+	public function about()
+	{
+		return View::make('about');
+	}
 }

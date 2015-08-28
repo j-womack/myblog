@@ -8,7 +8,8 @@
 		"laravel/framework": "4.2.*",
 		"fzaninotto/faker": "^1.5",
 		"erusev/parsedown": "~1.1",
-	    "ezyang/htmlpurifier": "4.6.*"
+	    "ezyang/htmlpurifier": "4.6.*",
+		"matriphe/imageupload": "4.2.*"
 	},
 	"require-dev": {
 		"barryvdh/laravel-debugbar": "1.8.*"

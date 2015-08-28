@@ -16,9 +16,13 @@ Create Blog Post
     ...
 @stop
 
+@section('image_url')
+'/img/pen.jpg'
+@stop
+
 @section('content')
 
-    {{ Form::open(array('action' => 'PostsController@store')) }}
+    {{ Form::open(array('action' => 'PostsController@store','files'=>true)) }}
     
         @include('posts.create-edit-form')
 

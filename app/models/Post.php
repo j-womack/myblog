@@ -13,8 +13,14 @@ class Post extends Eloquent
         return $this->belongsTo('User');
     }
 
-    public static function randomImage() {
+    public static function randomHeader() {
         $num = mt_rand(1,5);
+
+        return $num;
+    }
+
+    public static function randomAbout() {
+        $num = mt_rand(1,17);
 
         return $num;
     }

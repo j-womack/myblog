@@ -30,7 +30,7 @@ class PostsController extends \BaseController {
 
 		}
 
-		$posts = $query->orderBy('created_at', 'desc')->paginate(5);
+		$posts = $query->orderBy('id', 'desc')->paginate(5);
 		
 		foreach ($posts as $post) {
 	 		$body = $post->body;
@@ -73,11 +73,14 @@ class PostsController extends \BaseController {
 	    } else {
 			$post = new Post();
 
-			$title = htmlspecialchars(strip_tags(Input::get('title')));
-			$body = htmlspecialchars(strip_tags(Input::get('body')));
-
-			// dd($body);
-
+			$title = Input::get('title');
+			$body = Input::get('body');
+			if (Request::hasFile('file')) {
+			    $img = Imageupload::upload(Request::file('file'));
+				
+				$post->img_url = $img['filename'];
+			}
+			
 			$post->title = $title;
 			$post->body = $body;
 			$post->user_id = Auth::id();
@@ -89,8 +92,6 @@ class PostsController extends \BaseController {
 
 			return Redirect::action('PostsController@index');
 	    }
-
-
 	}
 
 
@@ -109,6 +110,14 @@ class PostsController extends \BaseController {
 			$parse = new Parsedown();
 
 			$post->body = $parse->text($body);
+
+			if (is_null($post->img_url)) {
+				$num = Post::randomAbout();
+				$post->img_url = "/img/about/about$num.jpg";
+			} else {
+				$basename = $post->img_url;
+				$post->img_url = "'/uploads/$basename'";
+			}
 
 			return View::make('posts.show')->with('post', $post);
 		}

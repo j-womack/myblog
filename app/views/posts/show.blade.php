@@ -9,13 +9,17 @@ The Blog
 @stop
 
 @section('subheading')
-    by: {{{ $post->user->email }}}
+    by: {{{ $post->user->firstName }}}
+@stop
+
+@section('image_url')
+{{ $post->img_url }}
 @stop
 
 @section('content')
     <p>
         /// <strong>{{ $post->title }}</strong> <br>
-        /// <em>by: {{{ $post->user->email }}}</em> <br>
+        /// <em>by: {{{ $post->user->firstName }}}</em> <br>
         /// <em>{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</em>
     </p>
     <p>{{ $post->body }}</p>
