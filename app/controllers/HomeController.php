@@ -30,6 +30,21 @@ class HomeController extends BaseController {
 		return View::make('posts.login');
 	}
 
+	public function showPortfolio()
+	{
+		return View::make('portfolio');
+	}
+
+	public function showSimon()
+	{
+		return View::make('simon');
+	}
+
+	public function showButtonMash()
+	{
+		return View::make('buttonmash');
+	}
+
 	public function doLogin()
 	{
 		$email		= Input::get('email');

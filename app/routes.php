@@ -13,38 +13,13 @@
 
 Route::get('/', 'PostsController@index');
 
-Route::get('/sayhello/{name?}', function($name = 'world')
-{
-    return 'Hello ' . $name . '.';
-});
-
 Route::get('/resume', 'HomeController@showResume');
 
-Route::get('/portfolio', function()
-{
-    return 'This is my portfolio.';
-});
+Route::get('/portfolio', 'HomeController@showPortfolio');
 
-Route::get('/rolldice/{guess}', function ($guess)
-{
-    $data = array('guess' => $guess);
-    return View::make('roll-dice')->with($data);
-});
+Route::get('/simon', 'HomeController@showSimon');
 
-Route::get('/myfirstview/{name}', function($name)
-{
-    return View::make('my-first-view')->with('name', $name);
-});
-
-Route::get('/calculator', function()
-{
-    return View::make('calculator');
-});
-
-Route::get('/konami', function()
-{
-    return View::make('konami');
-});
+Route::get('/buttonmash', 'HomeController@showButtonMash');
 
 Route::get('/posts', 'PostsController@index');
 

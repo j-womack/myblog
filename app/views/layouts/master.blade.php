@@ -14,25 +14,14 @@
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 
-
+    {{ HTML::style('/css/clean_blog.css'); }}
     
     @yield('style')
 
-    <style>
-        @import url(//fonts.googleapis.com/css?family=Lato:700);
-
-        body {
-            margin:0;
-            font-family:'Lato', sans-serif;
-        }
-    </style>
-
-    {{ HTML::style('/css/clean_blog.css'); }}
-    
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -60,7 +49,7 @@
                         <a href="/about">About</a>
                     </li>
                     <li>
-                        <a href="/posts/1">Sample Post</a>
+                        <a href="/portfolio">Portfolio</a>
                     </li>
 
                     @if(!Auth::check())
@@ -87,7 +76,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
+                <div class="site-heading" id="forceUp">
                     <h1>@yield('heading')</h1>
                     <hr class="small">
                     <span class="subheading">@yield('subheading')</span>
@@ -118,6 +107,11 @@
         @endif
 
         @yield('content')
+
+        <div class="konami">
+            <img src="/img/duck.png" id="duck">
+            <img src="/img/confetti.gif" id="confetti">
+        </div>
     </div>
 
 <hr class="featurette-divider">
@@ -131,7 +125,36 @@
     <script src="/js/jquery-2.1.4.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script>
+        "use strict";
+        $(document).ready(function(){
+            var sequence = [];
+            var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+            $(document).keyup(function(event){
+                sequence.push(event.keyCode);
+                if (sequence.length > 11){
+                    sequence.shift();
+                };
 
+                if (sequence.toString() == konami.toString()) {
+                    $('#duck').animate({
+                        left: $( window ).width()
+                    }, 10000, "swing", function() {
+                       // Animation complete.
+                       $('#duck').hide()
+                    });
+                    $('#confetti').animate({
+                        left: $( window ).width()
+                    }, 10000, "swing", function() {
+                       // Animation complete.
+                       $('#confetti').hide()
+                    });
+                };
+
+            });
+        });
+
+    </script>
     @yield('js')
 
 </body>
