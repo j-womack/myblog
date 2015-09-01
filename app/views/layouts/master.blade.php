@@ -15,6 +15,8 @@
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 
     {{ HTML::style('/css/clean_blog.css'); }}
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     
     @yield('style')
 
