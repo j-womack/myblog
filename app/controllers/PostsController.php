@@ -36,6 +36,13 @@ class PostsController extends \BaseController {
 	 		$body = $post->body;
 			$parse = new Parsedown();
 
+			$body = explode(" ", $body);
+			$body = array_slice($body, 0, 50);
+			if (count($body) == 50) {
+				$body = implode($body, " ") . "...";
+			} else {
+				$body = implode($body, " ");
+			}
 			$post->body = $parse->text($body);
 		}
 
