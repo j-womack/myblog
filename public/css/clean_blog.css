@@ -108,7 +108,7 @@ hr.small {
     letter-spacing:1px
 }
 
-@media only screen and (min-device-width:768px) {
+@media only screen and (min-width:768px) {
     .navbar-custom {
         background:rgba(0,0,0,.3);
         border-bottom:1px solid transparent
@@ -129,7 +129,7 @@ hr.small {
     }
 
 }
-@media only screen and (min-device-width:1170px) {
+@media only screen and (min-width:1170px) {
     .navbar-custom {
         -webkit-transition:background-color .3s;
         -moz-transition:background-color .3s;
@@ -194,7 +194,7 @@ hr.small {
     color:#fff
 }
 
-@media only screen and (min-device-width:768px) {
+@media only screen and (min-width:768px) {
     .intro-header .site-heading,.intro-header .post-heading,.intro-header .page-heading {
         padding:150px 0
     }
@@ -218,7 +218,7 @@ hr.small {
     margin:10px 0 0
 }
 
-@media only screen and (min-device-width:768px) {
+@media only screen and (min-width:768px) {
     .intro-header .site-heading h1,.intro-header .page-heading h1 {
         font-size:80px
     }
@@ -261,7 +261,7 @@ hr.small {
     color:#fff
 }
 
-@media only screen and (min-device-width:768px) {
+@media only screen and (min-width:768px) {
     .intro-header .post-heading h1 {
         font-size:55px
     }
@@ -318,7 +318,7 @@ hr.small {
     text-decoration:underline
 }
 
-@media only screen and (min-device-width:768px) {
+@media only screen and (min-width:768px) {
     .post-preview>a>.post-title {
         font-size:36px
     }
