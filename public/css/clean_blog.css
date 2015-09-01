@@ -40,6 +40,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Font Awesome';
+    src: url('../fonts/fontawesome-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size:20px;
@@ -530,4 +537,8 @@ body {
     position: absolute;
     top: 95px;
     left: -400px;
+}
+
+.grey {
+    color: #BBB;
 }

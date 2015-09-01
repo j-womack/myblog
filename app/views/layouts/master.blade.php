@@ -61,11 +61,7 @@
                         <a href="/portfolio">Portfolio</a>
                     </li>
 
-                    @if(!Auth::check())
-                        <li>
-                            <a href="/login">Login</a>
-                        </li>
-                    @else
+                    @if(Auth::check())
                         <li>
                             <a href="/posts/create">Create a New Post</a>
                         </li>
@@ -125,9 +121,28 @@
 
 <hr class="featurette-divider">
 
-<footer class="footer-container">
-    <p class="text-muted squeeze"><a href="#"><span class="glyphicon glyphicon-chevron-up"></span> Back to top</a></p>
-    <p class="squeeze">&middot;Thanks&middot;</p>
+<footer class="footer-container container">
+    <div class="row">
+        {{-- <p class="text-muted squeeze"> --}}
+            <div class="col-xs-4">
+                <a href="#"><span class="glyphicon glyphicon-chevron-up"></span>Back to top</a>
+            </div>
+            
+            <div class="col-xs-4">
+                <p class="squeeze text-center">
+                    <a href="http://github.com/j-womack"><span class="fa fa-github-square fa-2x grey"></span></a>
+                    <a href="https://www.linkedin.com/pub/joshua-womack/71/946/704"><span class="fa fa-linkedin-square fa-2x grey"></span></a>
+                    <a href="http://instagram.com/noisefights"><span class="fa fa-instagram fa-2x grey"></span></a>
+                </p>
+            </div>
+
+            <div class="col-xs-4 text-right">
+                @if(!Auth::check())
+                    <p class="squeeze"><a href="/login">Login</a></p>
+                @endif
+            </div>
+        {{-- </p> --}}
+    </div>
 </footer>
 
     {{-- JS/JQuery --}}
