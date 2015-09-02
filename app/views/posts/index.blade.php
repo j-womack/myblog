@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-The Blog
+A Blog
 @stop
 
 @section('heading')
@@ -19,7 +19,6 @@ Assorted musings
 @section('credit')
 <span class="jomando jback">Coffee photos by: <a href="http://instagram.com/jomando" class="jomando">@jomando</a></span>
 @stop
-
 
 @section('content')
     {{ $posts->appends(array('search' => Input::get('search')))->links() }}

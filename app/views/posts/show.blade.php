@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-The Blog
+{{ $post->title }}
 @stop
 
 @section('heading')
@@ -23,6 +23,14 @@ The Blog
         /// <em>{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</em>
     </p>
     <p>{{ $post->body }}</p>
+
+    <div class="pull-right">
+        <span class='st_facebook' displayText='Facebook'></span>
+        <span class='st_twitter' displayText='Tweet'></span>
+        <span class='st_linkedin' displayText='LinkedIn'></span>
+        <span class='st_pinterest' displayText='Pinterest'></span>
+        <span class='st_email' displayText='Email'></span>
+    </div>
 
     @if (Auth::check() && Auth::id() == $post->user->id)
         <div>
