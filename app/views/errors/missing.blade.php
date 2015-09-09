@@ -51,26 +51,6 @@
 
                     {{ Form::close() }}
                     </li>
-
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                    <li>
-                        <a href="/posts/1">Sample Post</a>
-                    </li>
-
-                    @if(!Auth::check())
-                        <li>
-                            <a href="/login">Login</a>
-                        </li>
-                    @else
-                        <li>
-                            <a href="/posts/create">Create a New Post</a>
-                        </li>
-                        <li>
-                            <a href="/logout">Logout</a>
-                        </li>
-                    @endif
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

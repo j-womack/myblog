@@ -190,7 +190,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Imageupload' 		=> 'Matriphe\Imageupload\ImageuploadFacade',
-
+		'Carbon' 			=> 'Carbon\Carbon',
 	),
 
 );

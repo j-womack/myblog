@@ -1,5 +1,4 @@
 <?php
-
 class BaseModel extends Eloquent
 {
     public function getCreatedAtAttribute($value)

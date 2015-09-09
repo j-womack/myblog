@@ -6,11 +6,11 @@ Edit Blog Post
 
 @section('style')
 <style type="text/css">
-.wmd-preview {
-    background-color: #EEE;
-    padding: 10px;
-    margin-top: 10px;
-}
+    .wmd-preview {
+        background-color: #EEE;
+        padding: 10px;
+        margin-top: 10px;
+    }
 </style>
 @stop
 

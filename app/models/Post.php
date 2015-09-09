@@ -13,6 +13,11 @@ class Post extends Eloquent
         return $this->belongsTo('User');
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany('Tag', 'post_tags');
+    }
+
     public static function randomHeader() {
         $num = mt_rand(1,5);
 

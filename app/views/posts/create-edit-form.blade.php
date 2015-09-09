@@ -10,6 +10,8 @@
 <label>Preview:</label>
 <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
 
+{{ Form::label('tags', 'Tags') }}
+{{ Form::text('tags', null, ['class' => 'form-control']) }}
 
 {{ Form::label('file','File',array('id'=>'','class'=>'')) }}
 {{ Form::file('file','',array('id'=>'','class'=>'')) }}

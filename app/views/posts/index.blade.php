@@ -25,7 +25,14 @@ Assorted musings
 
     <h1>Blog posts</h1>
     @foreach($posts as $post)
-        <h2><a href="{{{ action('PostsController@show', $post->id) }}}">{{ strip_tags($post->title) }}</a></h2>
+        <div class="row">
+            <h2 class="col-xs-6"><a href="{{{ action('PostsController@show', $post->id) }}}">{{ strip_tags($post->title) }}</a></h2>
+            <span class="text-right col-xs-6">Tags: <em>
+                @foreach ($post->tags as $tag)
+                    {{{ $tag->name }}}
+                @endforeach
+            </em></span><br>
+        </div>
         <span>{{{ $post->created_at->diffforhumans() }}} /// By: {{{ $post->user->firstName }}}</span>
         <p>{{ strip_tags($post->body) }}</p>
     @endforeach

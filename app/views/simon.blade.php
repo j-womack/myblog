@@ -92,7 +92,7 @@ Simple Simon
     var userIndex = 0;
     var buttonPosition;
     var square;
-
+    console.log("If you want to cheat...")
     // game structure
     function game() {
         $('#start').click(function(){

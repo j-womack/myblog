@@ -27,7 +27,6 @@ class PostsController extends \BaseController {
 			$query->orwhereHas('user', function($q) use ($search) {
 				$q->where('email', 'like', "%$search%");
 			});
-
 		}
 
 		$posts = $query->orderBy('id', 'desc')->paginate(5);
@@ -38,11 +37,13 @@ class PostsController extends \BaseController {
 
 			$body = explode(" ", $body);
 			$body = array_slice($body, 0, 50);
+
 			if (count($body) == 50) {
 				$body = implode($body, " ") . "...";
 			} else {
 				$body = implode($body, " ");
 			}
+
 			$post->body = $parse->text($body);
 		}
 
@@ -82,6 +83,7 @@ class PostsController extends \BaseController {
 
 			$title = Input::get('title');
 			$body = Input::get('body');
+
 			if (Request::hasFile('file')) {
 			    $img = Imageupload::upload(Request::file('file'));
 				
@@ -91,7 +93,22 @@ class PostsController extends \BaseController {
 			$post->title = $title;
 			$post->body = $body;
 			$post->user_id = Auth::id();
+
 			$post->save();
+
+			$post_id = $post->id;
+
+			$tags = Input::get('tags');
+			if (isset($tags)) {
+				$tags = strtolower(Input::get('tags'));
+				$tags = explode(', ', $tags);
+				foreach($tags as $tag) {
+					$tag = trim($tag);
+					$tag_id = Tag::firstOrCreate(array('name' => $tag));
+					$post->tags()->attach($tag_id, array('post_id' => $post_id));
+				}
+			}
+
 
 			Log::info('Success: ' ,['title' => $post->title, 'body' => $post->body]);
 
@@ -180,9 +197,19 @@ class PostsController extends \BaseController {
 	public function destroy($id)
 	{
 		$post = Post::find($id);
+
+		foreach($post->tags as $tag) {
+			$tag->pivot->delete();
+		}
+
 		$post->delete();
 
-		return Redirect::action('PostsController@index');		
+		if (Request::wantsJson()) {
+			$posts = Post::with('user')->get();
+            return Response::json($posts);
+        } else {
+            return Redirect::action('PostsController@index');
+        }
 	}
 
 	public function renderBody($id)
@@ -194,5 +221,18 @@ class PostsController extends \BaseController {
 
 		return $parse->body;
 	}
+
+	public function getManage()
+	{
+		return View::make('posts.manage');
+	}
+
+	public function getList()
+	{
+		$posts = Post::with('user')->get();
+		return Response::json($posts);
+	}
+
+
 
 }

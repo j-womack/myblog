@@ -23,6 +23,10 @@ Route::get('/buttonmash', 'HomeController@showButtonMash');
 
 Route::get('/posts', 'PostsController@index');
 
+Route::get('/posts/manage', 'PostsController@getManage');
+
+Route::get('/posts/list', 'PostsController@getList');
+
 // Login and logout
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');

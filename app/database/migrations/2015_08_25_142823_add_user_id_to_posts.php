@@ -32,5 +32,4 @@ class AddUserIdToPosts extends Migration {
 		    $table->dropColumn('user_id');
 		});
 	}
-
 }
