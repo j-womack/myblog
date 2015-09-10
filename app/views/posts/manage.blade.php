@@ -23,7 +23,10 @@ All Posts
     <table class="table table-hover">
         <tr ng-repeat="post in posts">
             <td>@{{ post.title }}</td>
-            <td><a class="btn btn-xs btn-danger" ng-click="deletePost(post.id)"><span class="glyphicon glyphicon-remove"></a></td>
+            <td>@{{ post.user.email }}</td>
+            <td>@{{ post.updated_at }}</td>
+            <td><a class="btn btn-xs btn-primary raised" href="/posts/@{{ post.id }}/edit">Edit</a></td>
+            <td><a class="btn btn-xs btn-danger raised" ng-click="deletePost(post.id)"><span class="glyphicon glyphicon-remove"></a></td>
         </tr>
     </table>
 </div>

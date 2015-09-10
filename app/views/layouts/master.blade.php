@@ -70,6 +70,9 @@
 
                     @if(Auth::check())
                         <li>
+                            <a href="/posts/manage">Manage Posts</a>
+                        </li>
+                        <li>
                             <a href="/posts/create">Create a New Post</a>
                         </li>
                         <li>
@@ -156,6 +159,7 @@
     <script src="/js/jquery-2.1.4.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/clean-blog.js"></script>
     <script>
         "use strict";
         $(document).ready(function(){
