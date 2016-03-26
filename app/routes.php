@@ -33,6 +33,8 @@ Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@doLogout');
 
 Route::get('/about', 'HomeController@about');
+Route::get('/ebay', 'HomeController@ebay');
+Route::post('/ebay', 'HomeController@ebaySearch');
 
 Route::resource('posts', 'PostsController');
 

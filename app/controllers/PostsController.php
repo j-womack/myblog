@@ -86,7 +86,6 @@ class PostsController extends \BaseController {
 
 			if (Request::hasFile('file')) {
 			    $img = Imageupload::upload(Request::file('file'));
-				
 				$post->img_url = $img['filename'];
 			}
 			
