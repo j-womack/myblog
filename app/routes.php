@@ -36,6 +36,8 @@ Route::get('/about', 'HomeController@about');
 Route::get('/ebay', 'HomeController@ebay');
 Route::post('/ebay', 'HomeController@ebaySearch');
 
+Route::get('/kiosk', 'HomeController@kiosk');
+
 Route::resource('posts', 'PostsController');
 
 Route::get('orm-test', function()

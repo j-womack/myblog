@@ -71,6 +71,11 @@ class HomeController extends BaseController {
 		return View::make('about');
 	}
 	
+	public function kiosk()
+	{
+		return View::make('kiosk');
+	}
+	
 	public function ebay()
 	{
 		$categories = array(
